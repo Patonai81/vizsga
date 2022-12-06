@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
 
+import javax.annotation.PostConstruct;
 import java.io.*;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -32,6 +33,7 @@ public class KeyManagerService {
      * Ezzel kell inicializálni a kulcsokat, de csak 1X
      * @throws Exception
      */
+    @PostConstruct
     public void init() throws Exception {
         File rsaKeyPairsDir = new File(System.getProperty("user.home"), directory);
         File publicKeyFile = new File(rsaKeyPairsDir, publicKey);
