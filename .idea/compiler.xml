@@ -20,11 +20,13 @@
         </processorPath>
         <module name="token-lib" />
         <module name="user-service" />
+        <module name="catalog-service" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="catalog-service" options="-parameters" />
       <module name="token-lib" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
