@@ -34,7 +34,7 @@ public class JwtService {
 
       return  JWT.create().withSubject(principal.getUsername())
                 .withArrayClaim(AUTH,principal.getAuthorities().stream().map(GrantedAuthority::getAuthority).toArray(String[]::new))
-                .withExpiresAt(new Date(System.currentTimeMillis()+ TimeUnit.MINUTES.toMillis(2)))
+                .withExpiresAt(new Date(System.currentTimeMillis()+ TimeUnit.MINUTES.toMillis(5)))
                 .withIssuer(ISSUER)
                 .sign(signerAlg);
     }
