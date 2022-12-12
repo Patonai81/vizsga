@@ -21,7 +21,9 @@
         <module name="user-service" />
         <module name="order-service" />
         <module name="token-lib" />
+        <module name="shipping-service-client" />
         <module name="catalog-service" />
+        <module name="shipping-service" />
       </profile>
     </annotationProcessing>
   </component>
@@ -29,6 +31,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="catalog-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
+      <module name="shipping-service" options="-parameters" />
       <module name="token-lib" options="-parameters" />
       <module name="user-service" options="-parameters" />
     </option>
