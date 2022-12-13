@@ -23,9 +23,15 @@ logging:
       springframework:
         security: DEBUG
 server:
-  port: 8082
+  port: 8083
   error:
     include-message: always
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8086/eureka/
+
 hu:
   webuni:
     secret:
