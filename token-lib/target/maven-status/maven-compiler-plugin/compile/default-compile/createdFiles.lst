@@ -1,0 +1,4 @@
+hu/webuni/security/service/JwtService.class
+hu/webuni/security/filter/JwtFilter.class
+hu/webuni/security/SecurityConfig.class
+hu/webuni/security/service/KeyManagerService.class

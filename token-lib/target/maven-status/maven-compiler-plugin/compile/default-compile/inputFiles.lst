@@ -1,0 +1,4 @@
+/Users/patonaiszabolcs/IdeaProjects/webshop/token-lib/src/main/java/hu/webuni/security/SecurityConfig.java
+/Users/patonaiszabolcs/IdeaProjects/webshop/token-lib/src/main/java/hu/webuni/security/filter/JwtFilter.java
+/Users/patonaiszabolcs/IdeaProjects/webshop/token-lib/src/main/java/hu/webuni/security/service/KeyManagerService.java
+/Users/patonaiszabolcs/IdeaProjects/webshop/token-lib/src/main/java/hu/webuni/security/service/JwtService.java

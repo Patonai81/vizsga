@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vizsga
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: 1053116572330232
+            client-secret: c0598992a36326dd4b1555057209f701
+            scope: email,public_profile
+server:
+  port: 8082
+  error:
+    include-message: always
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8086/eureka/
+
+hu:
+  webuni:
+    secret:
+      dir: .secret-keypair
+      pub:
+        key: jwt_rsa.pub
+      secret:
+        key: jwt_rsa.key
+
+
+
+
+
+
+
+

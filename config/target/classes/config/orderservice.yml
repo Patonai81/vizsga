@@ -1,0 +1,55 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vizsga-order
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  flyway:
+    baseline-on-migrate: true
+  infinispan:
+  embedded:
+    configXml: infinispan.xml
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+server:
+  port: 8083
+  error:
+    include-message: always
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8086/eureka/
+
+hu:
+  webuni:
+    secret:
+      dir: .secret-keypair
+      pub:
+        key: jwt_rsa.pub
+      secret:
+        key: jwt_rsa.key
+pickup:
+  country: Hungary
+  postalCode: 6000
+  city: Kecskemet
+  street: Akarmi
+  houseNumber: 15
+
+
+
+
+
+
+

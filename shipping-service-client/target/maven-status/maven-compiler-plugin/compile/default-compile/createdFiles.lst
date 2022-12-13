@@ -1,0 +1,8 @@
+hu/webuni/shippingservice/dto/AddressDTO.class
+hu/webuni/shippingservice/dto/ShippingOrderMessage.class
+hu/webuni/shippingservice/dto/OrderItemDTO$OrderItemDTOBuilder.class
+hu/webuni/shippingservice/dto/ShippingOrderDTO.class
+hu/webuni/shippingservice/dto/AddressDTO$AddressDTOBuilder.class
+hu/webuni/shippingservice/dto/OrderItemDTO.class
+hu/webuni/shippingservice/dto/ShippingOrderDTO$ShippingOrderDTOBuilder.class
+hu/webuni/shippingservice/dto/ShippingOrderMessage$ShippingOrderMessageBuilder.class
