@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/vizsga
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+infinispan:
+  embedded:
+    configXml: infinispan.xml
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+server:
+  port: 8081
+  error:
+    include-message: always
+
+
+
+
+
+
+
+
+
