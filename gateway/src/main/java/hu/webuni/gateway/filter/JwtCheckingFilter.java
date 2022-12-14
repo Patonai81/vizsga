@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.server.PathContainer;
 import org.springframework.http.server.reactive.ServerHttpResponse;
@@ -21,6 +22,7 @@ import org.springframework.web.util.pattern.PathPattern;
 import org.springframework.web.util.pattern.PathPatternParser;
 
 import reactor.core.publisher.Mono;
+
 
 @Component
 public class JwtCheckingFilter implements GlobalFilter {
@@ -38,12 +40,14 @@ public class JwtCheckingFilter implements GlobalFilter {
 		
 		if (loginPathPattern.matches(PathContainer.parsePath(originalUri.toString()).subPath(4)))
 			return chain.filter(exchange);
+		String subpath = PathContainer.parsePath(originalUri.toString()).subPath(4).toString();
 
 		List<String> authHeaders = exchange.getRequest().getHeaders().get("Authorization");
 
-		if (ObjectUtils.isEmpty(authHeaders))
-			return send401Response(exchange);
-		else {
+		if (ObjectUtils.isEmpty(authHeaders)) {
+			if (!canPass(exchange,subpath))
+				return send401Response(exchange);
+		}else {
 			String authHeader = authHeaders.get(0);
 			UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = null;
 			try {
@@ -53,10 +57,11 @@ public class JwtCheckingFilter implements GlobalFilter {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if (usernamePasswordAuthenticationToken == null)
-				return send401Response(exchange);
-		}
+			if (usernamePasswordAuthenticationToken == null && !canPass(exchange,subpath)) {
+				send401Response(exchange);
+			}
 
+		}
 		return chain.filter(exchange);
 	}
 
@@ -64,5 +69,14 @@ public class JwtCheckingFilter implements GlobalFilter {
 		ServerHttpResponse response = exchange.getResponse();
 		response.setStatusCode(HttpStatus.UNAUTHORIZED);
 		return response.setComplete();
+	}
+
+	private boolean canPass(ServerWebExchange exchange, String subpath){
+		HttpMethod httpMethod = exchange.getRequest().getMethod();
+		if (HttpMethod.GET.equals(httpMethod) && ( subpath.startsWith("/catalog") || subpath.startsWith("/product"))){
+			System.out.println("GET IS ALLOWED WITHOUT VALID TOKEN");
+			return true;
+		}
+		return false;
 	}
 }
