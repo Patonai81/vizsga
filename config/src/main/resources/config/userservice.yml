@@ -11,8 +11,8 @@ spring:
       client:
         registration:
           facebook:
-            client-id: 1053116572330232
-            client-secret: c0598992a36326dd4b1555057209f701
+            client-id: CHANGEIT
+            client-secret: CHANGEIT
             scope: email,public_profile
 server:
   port: 8082
