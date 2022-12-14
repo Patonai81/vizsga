@@ -1,0 +1,48 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: userservice
+          uri: lb://userservice
+          predicates:
+            - Path=/user/**
+          filters:
+            - RewritePath=/user(?<segment>/?.*), /api/user$\{segment}
+        - id: catalogservice
+          uri: lb://catalogservice
+          predicates:
+            - Path=/catalog/**
+          filters:
+            - RewritePath=/catalog(?<segment>/?.*), /api/catalog$\{segment}
+        - id: product
+          uri: lb://catalogservice
+          predicates:
+            - Path=/product/**
+          filters:
+            - RewritePath=/product(?<segment>/?.*), /api/product$\{segment}
+        - id: orderservice
+          uri: lb://orderservice
+          predicates:
+            - Path=/order/**
+          filters:
+            - RewritePath=/order(?<segment>/?.*), /api/order$\{segment}
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8086/eureka/
+hu:
+  webuni:
+    secret:
+      dir: .secret-keypair
+      pub:
+        key: jwt_rsa.pub
+      secret:
+        key: jwt_rsa.key
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: TRACE

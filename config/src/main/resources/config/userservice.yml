@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/vizsga
+    url: jdbc:postgresql://localhost:5432/vizsga-users
   jpa:
     open-in-view: false
     show-sql: true
@@ -29,6 +29,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8086/eureka/
+    fetch-registry: true
 
 hu:
   webuni:

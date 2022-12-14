@@ -8,18 +8,25 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="vizsga@localhost" uuid="42ee3257-60d9-49e9-bb01-73971cbee4b1">
+    <data-source source="LOCAL" name="vizsga-products" uuid="42ee3257-60d9-49e9-bb01-73971cbee4b1">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/vizsga</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="order" uuid="6bd02c08-1bcf-47f3-b125-b05992fac274">
+    <data-source source="LOCAL" name="vizsga-order" uuid="6bd02c08-1bcf-47f3-b125-b05992fac274">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/vizsga-order</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="vizsga-users" uuid="a626e19f-3364-4996-ad67-f4f0e510f196">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/vizsga-users</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
